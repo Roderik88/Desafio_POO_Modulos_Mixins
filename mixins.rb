@@ -1,7 +1,7 @@
-class Herviboro
+module Herviboro
   @@definir = 'Sólo me alimento de vegetales!'
 
-  def self.definir
+  def definir
     @@definir
   end
   def dieta
@@ -15,7 +15,8 @@ class Animal
   end
 end
 
-class Conejo < Animal < Herviboro
+class Conejo < Animal
+  include Herviboro
   def initialize(name)
     @name = name
   end
@@ -23,5 +24,11 @@ end
 
 conejo = Conejo.new('Bugs Bunny')
 conejo.saludar
-conejo.dieta
-Herviboro.definir
+puts conejo.dieta
+puts conejo.definir
+
+# ¿Por qué es mejor solución la implementación de Mixin que
+# mediante Herencia de Herencia?
+# es mas corto de escribir.
+#
+#
